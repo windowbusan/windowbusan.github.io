@@ -1,32 +1,60 @@
 ---
 layout: default
 ---
+
 <style>
-  body { padding-top: 20px; font-family: sans-serif; }
+  /* 헤더 스타일 */
   .header-container { text-align: center; padding: 40px 0; border-bottom: 2px solid #222; margin-bottom: 20px; }
   .main-logo { max-width: 300px; height: auto; margin-bottom: 15px; }
   .site-desc { font-size: 1.1rem; color: #555; margin-bottom: 15px; }
   .btn-donate { background-color: #87CEEB; color: #000; font-weight: 700; padding: 5px 15px; border-radius: 4px; text-decoration: none; border: 1px solid #555; }
   .news-menu { border-bottom: 2px solid #0056b3; padding: 15px 0; margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; }
   .news-menu a { color: #333; font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+
+  /* 기사 스타일 */
+  .main-article { position: relative; overflow: hidden; margin-bottom: 20px; }
+  .main-article img { width: 100%; height: 380px; object-fit: cover; }
+  .sub-article img { height: 180px; }
+  .article-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 60px 20px 20px 20px; color: #fff; }
+  .list-article { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 25px; }
+  .list-article img { width: 220px; height: 140px; object-fit: cover; }
+  .sidebar-box { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; }
+  .side-banner { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; padding: 30px 20px; color: #fff; font-weight: 800; margin-bottom: 15px; text-decoration: none !important; }
+  .banner-report { background-color: #0b3b5c; }
+  .banner-youtube { background-color: #cc0000; }
 </style>
 
-<!-- 로고, 설명, 후원 버튼 -->
-<div class="header-container">
+<div class="container">
+  <!-- 1. 헤더 (로고/설명/후원) -->
+  <div class="header-container">
     <img src="{{ site.baseurl }}/assets/images/logo.png" class="main-logo" alt="부산의 창">
     <p class="site-desc">부산의 생생한 목소리를 전하는 지역미디어, 부산의 창입니다.</p>
     <a href="#" class="btn-donate">부산의 창 후원하기</a>
-</div>
+  </div>
 
-<!-- 통합 메뉴 -->
-<div class="news-menu">
-    <a href="#">홈</a>
-    <a href="#">오피니언</a>
-    <a href="#">정치</a>
-    <a href="#">경제</a>
-    <a href="#">사회</a>
-    <a href="#">문화</a>
-    <a href="#">현장기사</a>
-</div>
+  <!-- 2. 메뉴 -->
+  <div class="news-menu">
+    <a href="#">홈</a> <a href="#">오피니언</a> <a href="#">정치</a> <a href="#">경제</a> <a href="#">사회</a> <a href="#">문화</a> <a href="#">현장기사</a>
+  </div>
 
-<!-- 이제 여기에 메인 기사 코드들을 넣으세요 -->
+  <!-- 3. 메인 기사 (좌 1 대형, 우 2 소형) -->
+  <div class="row mb-4">
+    <div class="col-md-8"><div class="main-article"><img src="https://images.unsplash.com/photo-1541887055455-22a013d33bd2?q=80&w=800&auto=format&fit=crop"><div class="article-overlay"><h3>윗반송동 주민들, 6.3 지방선거 앞두고 지역 현안 토론회 성황리 개최</h3></div></div></div>
+    <div class="col-md-4"><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>해운대구, 새로운 교통 체계 개편안 전격 발표</h5></div></div><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>반송시장 상인회, '디지털 전환'으로 활로 찾는다</h5></div></div></div>
+  </div>
+
+  <!-- 4. 배너 -->
+  <div class="row mb-5"><div class="col-12 text-center py-5 border"><h2 style="color: #1a4a7b; font-weight: 800;">이제 부산의 창이 시작합니다. 많은 제보를 기다립니다.</h2></div></div>
+
+  <!-- 5. 하단 리스트 및 사이드바 -->
+  <div class="row">
+    <div class="col-md-8">
+      <div class="list-article"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop"><div><h5>지역 청년 단체, '마을 가꾸기' 자원봉사 성료</h5><p>향후 600명 회원 모집을 핵심 목표로 활동 외연 확장 예고</p></div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="sidebar-box"><h4>뉴스플러스</h4><ul class="list-unstyled"><li>[인터뷰] 반송동 주민자치위원장</li><li>상습 침수 구역 특별 점검</li></ul></div>
+      <a href="#" class="side-banner banner-report">기사제보</a>
+      <a href="#" class="side-banner banner-youtube">유튜브 채널</a>
+    </div>
+  </div>
+</div>
