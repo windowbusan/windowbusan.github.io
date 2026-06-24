@@ -22,7 +22,12 @@ layout: default
   .sub-article img { height: 180px; }
   .article-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 60px 20px 20px 20px; color: #fff; }
   
-  /* [3] 푸터 스타일 */
+  /* [3] 전체기사 리스트 스타일 */
+  .all-news-section { margin-top: 40px; border-top: 2px solid #222; padding-top: 20px; }
+  .all-news-list { list-style: none; padding: 0; }
+  .all-news-list li { padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+  
+  /* [4] 푸터 스타일 */
   .footer-area { margin-top: 50px; padding: 30px 0; border-top: 2px solid #eee; background-color: #f9f9f9; font-size: 0.85rem; color: #555; }
 </style>
 
@@ -53,10 +58,23 @@ layout: default
     </div>
   </div>
 
-  <!-- 기사 본문 영역 -->
+  <!-- 메인 기사 영역 -->
   <div class="row mb-4">
     <div class="col-md-8"><div class="main-article"><img src="https://images.unsplash.com/photo-1541887055455-22a013d33bd2?q=80&w=800&auto=format&fit=crop"><div class="article-overlay"><h3>윗반송동 주민들, 6.3 지방선거 앞두고 지역 현안 토론회 성황리 개최</h3></div></div></div>
     <div class="col-md-4"><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>해운대구, 새로운 교통 체계 개편안 전격 발표</h5></div></div><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>반송시장 상인회, '디지털 전환'으로 활로 찾는다</h5></div></div></div>
+  </div>
+
+  <!-- 전체기사 섹션 -->
+  <div class="all-news-section">
+    <h3 style="font-weight: 800;">전체기사</h3>
+    <ul class="all-news-list">
+      {% for i in (1..10) %}
+      <li>
+        <a href="#" style="text-decoration: none; color: #333;">[카테고리] 가상의 기사 제목 {{ i }}번째 이야기</a>
+        <span style="color: #888;">2026-06-24</span>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 
