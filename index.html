@@ -25,15 +25,15 @@ layout: default
 </style>
 
 <div class="container">
- <!-- 수정된 헤더 영역 -->
+<!-- 수정된 헤더 영역 -->
 <div class="header-container" style="padding: 40px 0; border-bottom: 2px solid #222; margin-bottom: 20px;">
   <!-- 로고 -->
   <div style="margin-bottom: 15px;">
     <img src="{{ site.baseurl }}/assets/images/logo.png" class="main-logo" alt="부산의 창" style="max-width: 300px;">
   </div>
   
-  <!-- 설명과 후원 버튼을 가로로 배치 -->
-  <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <!-- 설명과 후원 버튼: space-between을 사용하여 양쪽 끝으로 밀어냅니다 -->
+  <div style="display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; padding: 0 20px;">
     <p class="site-desc" style="margin: 0;">부산의 생생한 목소리를 전하는 지역미디어, 부산의 창입니다.</p>
     <a href="#" class="btn-donate" style="background-color: #87CEEB; color: #000; font-weight: 700; padding: 5px 15px; border-radius: 4px; text-decoration: none; border: 1px solid #555;">부산의 창 후원하기</a>
   </div>
