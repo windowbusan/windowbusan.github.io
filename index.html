@@ -4,198 +4,72 @@ title: Home
 ---
 
 <style>
-  /* 기존 블로그형 상단 메뉴 숨기기 */
+  /* 기본 설정 */
   .navbar { display: none !important; }
-  .site-content { padding-top: 0 !important; margin-top: 10px; }
+  .site-content { padding-top: 0 !important; }
 
-  /* 언론사 전용 커스텀 스타일 */
-  .news-top-bar { border-bottom: 2px solid #222; padding-bottom: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: flex-end; }
-  .news-logo img { max-height: 50px; }
-  .btn-donate { background-color: #e74c3c; color: #fff; font-size: 0.95rem; font-weight: bold; border: none; padding: 8px 20px; border-radius: 3px; text-decoration: none !important; }
-  .btn-donate:hover { background-color: #c0392b; color: #fff; }
-  
-  .news-menu { border-bottom: 1px solid #ddd; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; }
-  .news-menu ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
-  .news-menu ul li a { color: #333; font-weight: 700; font-size: 1.1rem; text-decoration: none; padding-bottom: 10px; display: inline-block; }
-  .news-menu ul li.active a { color: #0056b3; border-bottom: 3px solid #0056b3; }
-  
-  .search-box { position: relative; padding-bottom: 10px; }
-  .search-box input { border: 1px solid #ccc; padding: 5px 10px; border-radius: 0; width: 200px; font-size: 0.9rem;}
-  .search-box button { position: absolute; right: 5px; top: 3px; background: none; border: none; cursor: pointer; color: #555; }
+  /* 로고 및 설명 영역 (통합) */
+  .header-container { text-align: center; padding: 40px 0; border-bottom: 2px solid #222; margin-bottom: 20px; }
+  .main-logo { max-width: 300px; height: auto; margin-bottom: 15px; }
+  .site-desc { font-size: 1.1rem; color: #555; margin-bottom: 15px; }
+  .btn-donate { background-color: #87CEEB; color: #000; font-weight: 700; padding: 5px 15px; border-radius: 4px; text-decoration: none; border: 1px solid #555; }
 
-  /* 메인 기사 3분할 스타일 */
+  /* 메뉴 한 줄 정렬 */
+  .news-menu { border-bottom: 2px solid #0056b3; padding: 15px 0; margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; }
+  .news-menu a { color: #333; font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+
+  /* 나머지 스타일은 그대로 유지 */
   .main-article { position: relative; overflow: hidden; margin-bottom: 20px; }
   .main-article img { width: 100%; height: 380px; object-fit: cover; }
   .sub-article img { height: 180px; }
   .article-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 60px 20px 20px 20px; }
   .article-overlay h3 { color: #fff; margin: 0; font-weight: 800; font-size: 1.8rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
-  .article-overlay h5 { color: #fff; margin: 0; font-weight: 700; font-size: 1.1rem; line-height: 1.4; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
-
-  /* 시간순 리스트 스타일 */
+  .article-overlay h5 { color: #fff; margin: 0; font-weight: 700; font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
   .list-article { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 25px; }
   .list-article img { width: 220px; height: 140px; object-fit: cover; }
-  .list-article h5 { font-weight: 800; font-size: 1.3rem; margin-bottom: 10px; line-height: 1.4; }
-  .list-article h5:hover { color: #0056b3; }
-  .list-article p { font-size: 0.95rem; color: #555; margin-bottom: 10px; line-height: 1.6; }
-  .meta-info { font-size: 0.85rem; color: #888; }
-  
-  /* 우측 사이드바 및 배너 */
+  .list-article h5 { font-weight: 800; font-size: 1.3rem; margin-bottom: 10px; }
   .sidebar-box { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; }
-  .sidebar-box h4 { font-weight: 800; color: #d32f2f; margin-bottom: 15px; }
-  .sidebar-list li { margin-bottom: 15px; font-size: 1rem; font-weight: 700; line-height: 1.4; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
-  .sidebar-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  
-  .side-banner { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; text-align: center; padding: 30px 20px; color: #fff; font-weight: 800; font-size: 1.4rem; margin-bottom: 15px; text-decoration: none !important; border-radius: 2px; }
-  .banner-report { background-color: #0b3b5c; border: 2px solid #072a44; }
-  .banner-report span { color: #a4c8e1; }
+  .side-banner { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; padding: 30px 20px; color: #fff; font-weight: 800; margin-bottom: 15px; text-decoration: none !important; }
+  .banner-report { background-color: #0b3b5c; }
   .banner-youtube { background-color: #cc0000; }
 </style>
 
-<div class="container pl-0 pr-0">
-  
-  <!-- 1. Header: 로고는 default.html에서, 여기서는 우측 후원버튼만 표시 -->
-  <div class="news-top-bar" style="justify-content: flex-end; border-bottom: 0; margin-bottom: 10px;">
-    <div>
-      <a href="#" class="btn-donate">부산의 창 후원 ♡</a>
-    </div>
+<div class="container">
+  <div class="header-container">
+    <img src="{{ site.baseurl }}/assets/images/logo.png" class="main-logo" alt="부산의 창">
+    <p class="site-desc">부산의 생생한 목소리를 전하는 지역미디어, 부산의 창입니다.</p>
+    <a href="#" class="btn-donate">부산의 창 후원하기</a>
   </div>
 
-  <!-- 2. Menu & Search -->
-  <div class="news-menu" style="border-top: 2px solid #222; padding-top: 15px;">
-    <ul>
-      <li class="active"><a href="#">홈</a></li>
-      <li><a href="#">오피니언</a></li>
-      <li><a href="#">정치</a></li>
-      <li><a href="#">경제</a></li>
-      <li><a href="#">사회</a></li>
-      <li><a href="#">문화</a></li>
-      <li><a href="#">현장기사</a></li>
-    </ul>
-    <div class="search-box">
-      <input type="text" placeholder="검색어를 입력해주세요">
-      <button><i class="fa fa-search"></i></button>
-    </div>
-  </div>
-
-  <!-- 2. Menu & Search -->
   <div class="news-menu">
-    <ul>
-      <li class="active"><a href="#">홈</a></li>
-      <li><a href="#">오피니언</a></li>
-      <li><a href="#">정치</a></li>
-      <li><a href="#">경제</a></li>
-      <li><a href="#">사회</a></li>
-      <li><a href="#">문화</a></li>
-      <li><a href="#">현장기사</a></li>
-    </ul>
-    <div class="search-box">
-      <input type="text" placeholder="검색어를 입력해주세요">
-      <button><i class="fa fa-search"></i></button>
-    </div>
+    <a href="#">홈</a>
+    <a href="#">오피니언</a>
+    <a href="#">정치</a>
+    <a href="#">경제</a>
+    <a href="#">사회</a>
+    <a href="#">문화</a>
+    <a href="#">현장기사</a>
   </div>
 
-  <!-- 3. 메인 기사 (좌 1 대형, 우 2 소형) -->
   <div class="row mb-4">
-    <!-- 좌측 대형 기사 -->
-    <div class="col-md-8 pl-md-3 pr-md-2">
-      <div class="main-article">
-        <a href="#">
-          <img src="https://images.unsplash.com/photo-1541887055455-22a013d33bd2?q=80&w=800&auto=format&fit=crop" alt="메인 대형">
-          <div class="article-overlay">
-            <h3>윗반송동 주민들, 6.3 지방선거 앞두고 지역 현안 토론회 성황리 개최</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-    <!-- 우측 소형 기사 2개 -->
-    <div class="col-md-4 pl-md-2 pr-md-3">
-      <div class="main-article sub-article">
-        <a href="#">
-          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=400&auto=format&fit=crop" alt="메인 소형 1">
-          <div class="article-overlay" style="padding-top: 30px;">
-            <h5>해운대구, 새로운 교통 체계 개편안 전격 발표</h5>
-          </div>
-        </a>
-      </div>
-      <div class="main-article sub-article mb-0">
-        <a href="#">
-          <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=400&auto=format&fit=crop" alt="메인 소형 2">
-          <div class="article-overlay" style="padding-top: 30px;">
-            <h5>반송시장 상인회, '디지털 전환'으로 활로 찾는다</h5>
-          </div>
-        </a>
-      </div>
-    </div>
+    <div class="col-md-8"><div class="main-article"><img src="https://images.unsplash.com/photo-1541887055455-22a013d33bd2?q=80&w=800&auto=format&fit=crop"><div class="article-overlay"><h3>윗반송동 주민들, 6.3 지방선거 앞두고 지역 현안 토론회 성황리 개최</h3></div></div></div>
+    <div class="col-md-4"><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>해운대구, 새로운 교통 체계 개편안 전격 발표</h5></div></div><div class="main-article sub-article"><img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=400&auto=format&fit=crop"><div class="article-overlay"><h5>반송시장 상인회, '디지털 전환'으로 활로 찾는다</h5></div></div></div>
   </div>
 
-  <!-- 4. 가로 대형 배너 -->
   <div class="row mb-5">
-    <div class="col-12">
-      <div style="background-color: #f8f9fa; text-align: center; padding: 40px; border: 1px solid #e9ecef;">
-        <h2 style="color: #1a4a7b; font-weight: 800; margin: 0;">부산의 창 창간 1주년, 시민의 목소리가 역사가 됩니다</h2>
-      </div>
+    <div class="col-12 text-center py-5 border">
+      <h2 style="color: #1a4a7b; font-weight: 800;">이제 부산의 창이 시작합니다. 많은 제보를 기다립니다.</h2>
     </div>
   </div>
 
-  <!-- 5. 하단: 좌측 시간순 기사 리스트 / 우측 사이드바 -->
   <div class="row">
-    <!-- 좌측 리스트 -->
-    <div class="col-md-8 pl-md-3">
-      
-      <div class="list-article">
-        <a href="#"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop" alt="리스트 1"></a>
-        <div>
-          <a href="#" style="text-decoration:none;"><h5 style="color:#000;">지역 청년 단체, '마을 가꾸기' 자원봉사 성료... 조직원 200명 돌파</h5></a>
-          <p>반송동 일대 환경 정화 및 벽화 그리기 사업 성황리에 마무리... 향후 600명 회원 모집을 핵심 목표로 활동 외연 확장 예고</p>
-          <span class="meta-info">2026-06-24 | 사회</span>
-        </div>
-      </div>
-
-      <div class="list-article">
-        <a href="#"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="리스트 2"></a>
-        <div>
-          <a href="#" style="text-decoration:none;"><h5 style="color:#000;">구의회 예산결산특위, 내년도 노인·아동 복지 예산 삭감 논란</h5></a>
-          <p>복지 예산 15% 삭감안 상정돼 파장... 지역 커뮤니티 및 시민사회단체 "사회적 약자 철저히 외면하는 처사"라며 강력 반발</p>
-          <span class="meta-info">2026-06-23 | 정치</span>
-        </div>
-      </div>
-
-      <div class="list-article">
-        <a href="#"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400&auto=format&fit=crop" alt="리스트 3"></a>
-        <div>
-          <a href="#" style="text-decoration:none;"><h5 style="color:#000;">[오피니언] 주민이 직접 참여하는 예산제도, 왜 절실한가</h5></a>
-          <p>단순하고 형식적인 거수기식 주민참여예산제를 넘어서, 실질적인 권한 부여와 투명한 논의 과정이 필수적이라는 목소리 높아...</p>
-          <span class="meta-info">2026-06-22 | 오피니언</span>
-        </div>
-      </div>
-
+    <div class="col-md-8">
+      <div class="list-article"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop"><div><h5>지역 청년 단체, '마을 가꾸기' 자원봉사 성료</h5><p>향후 600명 회원 모집을 핵심 목표로 활동 외연 확장 예고</p></div></div>
     </div>
-
-    <!-- 우측 사이드바 및 포털 배너 -->
-    <div class="col-md-4 pr-md-3">
-      
-      <!-- 뉴스플러스 대체 (주요 기사 모음) -->
-      <div class="sidebar-box">
-        <h4>뉴스플러스</h4>
-        <ul class="list-unstyled sidebar-list">
-          <li><a href="#" style="color:#333;">[인터뷰] 반송동 주민자치위원장을 만나 지역의 미래를 듣다</a></li>
-          <li><a href="#" style="color:#333;">여름 장마철 집중호우 앞두고, 상습 침수 구역 특별 점검</a></li>
-          <li><a href="#" style="color:#333;">지역 소상공인 밀착 지원금 신청, 다음 달 1일부터 전면 개시</a></li>
-        </ul>
-      </div>
-      
-      <!-- 기사제보 배너 -->
-      <a href="#" class="side-banner banner-report">
-        <span style="font-size: 1.2rem; font-weight: 400; margin-bottom: 5px;">현장언론</span>
-        <div>부산의 창 <span style="color:#fff; font-size:1.8rem;">기사제보</span> <i class="far fa-hand-pointer ml-1"></i></div>
-        <span style="font-size:0.9rem; font-weight:normal; margin-top:5px; color:#8ab4f8;">busanwindow.com</span>
-      </a>
-
-      <!-- 유튜브 채널 배너 -->
-      <a href="#" class="side-banner banner-youtube">
-        <div>부산의 창 공식 채널 입장 <i class="fab fa-youtube ml-2" style="font-size: 1.6rem;"></i></div>
-      </a>
-
+    <div class="col-md-4">
+      <div class="sidebar-box"><h4>뉴스플러스</h4><ul class="list-unstyled"><li>[인터뷰] 반송동 주민자치위원장</li><li>상습 침수 구역 특별 점검</li></ul></div>
+      <a href="#" class="side-banner banner-report">기사제보</a>
+      <a href="#" class="side-banner banner-youtube">유튜브 채널</a>
     </div>
   </div>
 </div>
