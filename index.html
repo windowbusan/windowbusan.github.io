@@ -140,3 +140,40 @@ title: Home
         </div>
     </div>
 </div>
+<!-- 모바일 터치 스와이프 기능 추가 스크립점 -->
+<script>
+$(document).ready(function() {
+    // 화살표 클릭 시 확실하게 넘어가도록 보정
+    $('.carousel-control-prev').click(function(e){
+        e.preventDefault();
+        $('#mainHeroCarousel').carousel('prev');
+    });
+    $('.carousel-control-next').click(function(e){
+        e.preventDefault();
+        $('#mainHeroCarousel').carousel('next');
+    });
+
+    // 드래그(스와이프) 기능 활성화
+    var touchStartX = 0;
+    var touchEndX = 0;
+    
+    $('#mainHeroCarousel').on('touchstart', function(event) {
+        touchStartX = event.originalEvent.touches[0].clientX;
+    });
+    
+    $('#mainHeroCarousel').on('touchend', function(event) {
+        touchEndX = event.originalEvent.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (touchStartX - touchEndX > 50) {
+            // 왼쪽으로 밀었을 때 (다음 슬라이드)
+            $('#mainHeroCarousel').carousel('next');
+        } else if (touchEndX - touchStartX > 50) {
+            // 오른쪽으로 밀었을 때 (이전 슬라이드)
+            $('#mainHeroCarousel').carousel('prev');
+        }
+    }
+});
+</script>
