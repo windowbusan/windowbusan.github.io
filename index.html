@@ -53,14 +53,27 @@ title: Home
 
 <div class="container pl-0 pr-0">
   
-  <!-- 1. Header: 좌측 로고, 우측 후원버튼 -->
-  <div class="news-top-bar">
-    <div class="news-logo">
-      <!-- 기존 제작하신 로고 이미지를 불러옵니다 -->
-      <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/images/logo.png" alt="부산의 창"></a>
-    </div>
+  <!-- 1. Header: 로고는 default.html에서, 여기서는 우측 후원버튼만 표시 -->
+  <div class="news-top-bar" style="justify-content: flex-end; border-bottom: 0; margin-bottom: 10px;">
     <div>
       <a href="#" class="btn-donate">부산의 창 후원 ♡</a>
+    </div>
+  </div>
+
+  <!-- 2. Menu & Search -->
+  <div class="news-menu" style="border-top: 2px solid #222; padding-top: 15px;">
+    <ul>
+      <li class="active"><a href="#">홈</a></li>
+      <li><a href="#">오피니언</a></li>
+      <li><a href="#">정치</a></li>
+      <li><a href="#">경제</a></li>
+      <li><a href="#">사회</a></li>
+      <li><a href="#">문화</a></li>
+      <li><a href="#">현장기사</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="검색어를 입력해주세요">
+      <button><i class="fa fa-search"></i></button>
     </div>
   </div>
 
