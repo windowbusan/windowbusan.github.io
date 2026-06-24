@@ -3,10 +3,57 @@ layout: default
 title: Home
 ---
 
-<!-- 1. 메인 대형 배너 (시민 제보 환영) -->
-<div class="jumbotron text-center text-white" style="background: url('https://images.unsplash.com/photo-1548115184-bc6544d06a58?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; padding: 150px 0; border-radius: 0; margin-bottom: 50px;">
-    <h1 class="font-weight-bold" style="font-size: 3.5rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.8);">시민 제보 환영합니다</h1>
-    <p class="lead" style="font-size: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">여러분의 목소리가 뉴스가 됩니다</p>
+<!-- 1. 메인 슬라이더 (Carousel) -->
+<div id="mainHeroCarousel" class="carousel slide mb-5" data-ride="carousel" data-interval="4000">
+    <!-- 하단 점(인디케이터) -->
+    <ol class="carousel-indicators">
+        <li data-target="#mainHeroCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mainHeroCarousel" data-slide-to="1"></li>
+        <li data-target="#mainHeroCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- 슬라이드 내용 -->
+    <div class="carousel-inner">
+        <!-- 첫 번째 슬라이드 (시민 제보) -->
+        <div class="carousel-item active">
+            <div class="jumbotron text-center text-white m-0" style="background: url('https://images.unsplash.com/photo-1548115184-bc6544d06a58?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; padding: 150px 0; border-radius: 0;">
+                <div style="background-color: rgba(0,0,0,0.5); display: inline-block; padding: 20px 40px; border-radius: 10px;">
+                    <h1 class="font-weight-bold" style="font-size: 3.5rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.8);">시민 제보 환영합니다</h1>
+                    <p class="lead mb-0" style="font-size: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">여러분의 목소리가 뉴스가 됩니다</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 두 번째 슬라이드 (지역 소식) -->
+        <div class="carousel-item">
+            <div class="jumbotron text-center text-white m-0" style="background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; padding: 150px 0; border-radius: 0;">
+                <div style="background-color: rgba(0,0,0,0.5); display: inline-block; padding: 20px 40px; border-radius: 10px;">
+                    <h1 class="font-weight-bold" style="font-size: 3rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.8);">윗반송동 주민 간담회 성황리 개최</h1>
+                    <p class="lead mb-0" style="font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">지역 현안 해결과 발전을 위한 심도 깊은 논의 진행</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 세 번째 슬라이드 (선거/정치 소식) -->
+        <div class="carousel-item">
+            <div class="jumbotron text-center text-white m-0" style="background: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1600&auto=format&fit=crop') no-repeat center center; background-size: cover; padding: 150px 0; border-radius: 0;">
+                <div style="background-color: rgba(0,0,0,0.5); display: inline-block; padding: 20px 40px; border-radius: 10px;">
+                    <h1 class="font-weight-bold" style="font-size: 3rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.8);">다가오는 6.3 지방선거, 지역의 선택은?</h1>
+                    <p class="lead mb-0" style="font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">주민들의 삶을 바꿀 새로운 정책과 비전 점검</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 좌우 화살표 버튼 -->
+    <a class="carousel-control-prev" href="#mainHeroCarousel" role="button" data-slide="prev" style="width: 5%;">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 3rem; height: 3rem;"></span>
+        <span class="sr-only">이전</span>
+    </a>
+    <a class="carousel-control-next" href="#mainHeroCarousel" role="button" data-slide="next" style="width: 5%;">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="width: 3rem; height: 3rem;"></span>
+        <span class="sr-only">다음</span>
+    </a>
 </div>
 
 <div class="container">
